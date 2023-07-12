@@ -16,4 +16,4 @@ spec:
         - name: myapps
           image: saikrishna998/docker-app:latest
           ports: 80
-            - containerPort: 5000
+            - containerPort: 80
