@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: myacr
 spec:
+  type: LoadBalancer
   selector:
-    app: myapps
+    app: myacr
   ports:
     - protocol: TCP
       port: 80
       targetPort: 5000
-  type: LoadBalancer
