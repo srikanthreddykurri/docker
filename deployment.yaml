@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapps  
+  name: myacr
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapps
+      app: myacr
   template:
     metadata:
       labels:
-        app: myapps
+        app: myacr
     spec:
       containers:
-        - name: myapps
-          image: saikrishna998/docker-app:latest
-          ports: 
-            - containerPort: 80
+        - name: myacr
+          image: cont21.azurecr.io/docker-app:latest
+          ports:
+            - containerPort: 5000
