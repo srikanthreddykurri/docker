@@ -1,19 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myacr
+  name: myapps
+  namespace: acr21
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myacr
+      app: myapps
   template:
     metadata:
       labels:
-        app: myacr
+        app: myapps
     spec:
       containers:
-        - name: myacr
-          image: cont21.azurecr.io/docker-app:latest
+        - name: myapps
+          image: cont21.azurecr.io/sai-image:latest
           ports:
-            - containerPort: 5000
+            - containerPort: 80
+      imagePullSecrets:
+      - name: cont21
