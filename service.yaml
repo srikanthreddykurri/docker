@@ -1,14 +1,13 @@
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp21
+  name: new-docker-app
   namespace: kube
 spec:
-  type: LoadBalancer
   selector:
-    app: myapp21
+    app: new-docker-app
+  type : LoadBalancer
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5000
+      targetPort: 9376
