@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: new-docker-app-hpa
-  namespace: kube
+  namespace: acr-kube
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
