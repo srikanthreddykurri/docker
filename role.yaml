@@ -2,8 +2,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: sai-image
-  namespace: acr-kube
+  name: docker-dotnet6
+  namespace: srikanth
 rules:
 - apiGroups: [""]
   resources: ["pods", "services"]

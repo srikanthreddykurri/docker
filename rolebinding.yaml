@@ -1,12 +1,13 @@
+# role-binding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: sai-image
-  namespace: acr-kube
+  name: my-role-binding
+  namespace: srikanth
 subjects:
 - kind: ServiceAccount
-  name: sai-image
-  namespace: acr-kube
+  name: my-service-account
+  namespace: srikanth
 roleRef:
   kind: Role
   name: my-role
