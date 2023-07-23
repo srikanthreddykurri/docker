@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: new-docker-app-deployment
+  name: sai-image-deployment
   namespace: acr-kube
 data:
   DB_HOST: key

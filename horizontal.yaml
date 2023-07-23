@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: new-docker-app-hpa
+  name: sai-image-hpa
   namespace: acr-kube
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: new-docker-app-deployment
+    name: sai-image-deployment
   minReplicas: 1
   maxReplicas: 10
   metrics:

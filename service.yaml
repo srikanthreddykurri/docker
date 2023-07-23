@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: new-docker-app
+  name: sai-image-app
   namespace: acr-kube
 spec:
   selector:
-    app: new-docker-app
+    app: sai-image-app
   type : LoadBalancer
   ports:
     - protocol: TCP

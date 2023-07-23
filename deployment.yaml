@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: new-docker-app-deployment
+  name: sai-image-deployment
   namespace: acr-kube
   labels:
-    app: new-docker-app
+    app: sai-image
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: new-docker-app
+      app: sai-image
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: new-docker-app
+        app: sai-image
     spec:
       initContainers:
       - name: init-setup
@@ -26,10 +26,10 @@ spec:
         command: ['sh', '-c', 'ls; pwd; sleep 10']
         envFrom:
         - configMapRef:
-            name: new-docker-app-deployment
+            name: sai-image-deployment
       containers:
-      - name: new-docker-app
-        image: acr2121.azurecr.io/sai-image:latest
+      - name: sai-image
+        image: saikrishna998/docker-app:latest
         ports:
         - containerPort: 5000
         livenessProbe:
@@ -47,8 +47,8 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 5
         env:
-        - name: new-docker-app-deployment
+        - name: sai-image-deployment
           valueFrom:
             configMapKeyRef:
               key: DB_HOST
-              name: new-docker-app-deployment
+              name: sai-image-deployment
