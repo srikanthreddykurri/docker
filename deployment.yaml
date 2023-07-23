@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapps
+  name: myapp21
   namespace: kube
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapps
+      app: myapp21
   template:
     metadata:
       labels:
-        app: myapps
+        app: myapp21
     spec:
       containers:
-        - name: myapps
+        - name: myapp21
           image: acr2121.azurecr.io/sai-image:latest
           ports:
             - containerPort: 80
