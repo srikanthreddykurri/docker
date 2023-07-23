@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: new-docker-app-deployment
-  namespace: kube
+  namespace: acr-kube
   labels:
     app: new-docker-app
 spec:
