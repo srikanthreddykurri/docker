@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapps
+  name: myapp21
   namespace: kube
 spec:
   type: LoadBalancer
   selector:
-    app: myapps
+    app: myapp21
   ports:
     - protocol: TCP
       port: 80
