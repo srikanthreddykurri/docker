@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: new-docker-app-deployment
-  namespace: kube
+  namespace: acr-kube
 data:
   DB_HOST: key
   # Add other configuration key-value pairs as needed
