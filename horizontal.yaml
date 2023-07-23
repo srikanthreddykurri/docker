@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: sai-image-hpa
-  namespace: acr-kube
+  name: docker-dotnet6-hpa
+  namespace: srikanth
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: sai-image-deployment
+    name: docker-dotnet6-deployment
   minReplicas: 1
   maxReplicas: 10
   metrics:

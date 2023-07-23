@@ -1,15 +1,18 @@
+# Deployement 
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sai-image-deployment
-  namespace: acr-kube
+  name: docker-dotnet6-deployment
+  namespace: srikanth
   labels:
-    app: sai-image
+    app: docker-dotnet6
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: sai-image
+      app: docker-dotnet6
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,7 +21,7 @@ spec:
   template:
     metadata:
       labels:
-        app: sai-image
+        app: docker-dotnet6
     spec:
       initContainers:
       - name: init-setup
@@ -26,10 +29,10 @@ spec:
         command: ['sh', '-c', 'ls; pwd; sleep 10']
         envFrom:
         - configMapRef:
-            name: sai-image-deployment
+            name: docker-dotnet6-deployment
       containers:
-      - name: sai-image
-        image: saikrishna998/docker-app:latest
+      - name: docker-dotnet6
+        image: kubeassignment.azurecr.io/new_docker-app:latest
         ports:
         - containerPort: 5000
         livenessProbe:
@@ -47,8 +50,8 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 5
         env:
-        - name: sai-image-deployment
+        - name: docker-dotnet6-deployment
           valueFrom:
             configMapKeyRef:
               key: DB_HOST
-              name: sai-image-deployment
+              name: docker-dotnet6-deployment
