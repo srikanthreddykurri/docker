@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapps  
+  name: myapps
+  namespace: kube
 spec:
   replicas: 2
   selector:
@@ -14,6 +15,8 @@ spec:
     spec:
       containers:
         - name: myapps
-          image: saikrishna998/docker-app:latest
+          image: acr2121.azurecr.io/sai-image:latest
           ports:
             - containerPort: 80
+      imagePullSecrets:
+      - name: cont21
