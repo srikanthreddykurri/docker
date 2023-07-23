@@ -1,21 +1,24 @@
 version: '3'
 services:
-dotnet6:
-build:
-context: .
-dockerfile: Dockerfile
-ports:
-  - 5000:5000
-  depends_on:
-    - redis
-    - mysql
+  dotnet6:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - redis
+      - mysql
 
-    redis:
+  redis:
     image: redis:latest
+
+  mysql:
+    image: mysql:latest
     environment:
-    MYSQL_ROOT_PASSWORD: your_root_password
-    MYSQL_DATABASE: your_database_name
+      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_DATABASE: your_database_name
       MYSQL_USER: your_username
       MYSQL_PASSWORD: your_password
-      ports:
-        - 3306:3306
+    ports:
+      - 3306:3306
