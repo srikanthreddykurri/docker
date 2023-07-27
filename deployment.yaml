@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: docker-dotnet6-deployment
-  namespace: srikanth
+  namespace: kube24
   labels:
     app: docker-dotnet6
 spec:
@@ -25,7 +25,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
-                  - key: envi
+                  - key: env
                     operator: In
                     values:
                       - prob
@@ -49,8 +49,9 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
           env:
-            - name: DB_HOST
+            - name: docker-dotnet6-deployment
               valueFrom:
                 configMapKeyRef:
                   name: docker-dotnet6-deployment
                   key: DB_HOST
+      
